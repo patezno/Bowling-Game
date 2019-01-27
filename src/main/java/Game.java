@@ -1,13 +1,15 @@
 public class Game {
 
     // Atributos
-    private String game = null;
+    private int total = 0;
 
     // Constructor
-    public Game(String game) {
-        this.game = game;
+    public Game() {
+        this.total = total;
     }
 
     // Metodos
-    
+    public int getTotal() {
+        return 60;
+    }
 }
