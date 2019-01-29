@@ -1,22 +1,38 @@
 public class Game {
 
-    // Atributos
+    // Attributes
 
-    // Constructor
+    private int STRIKE = 10;
+    private int SPELL = 0;
 
-    // Metodos
+    // Constructors
+
+    public int getSTRIKE() {
+        return this.STRIKE;
+    }
+
+    public int getSPELL() {
+        return this.SPELL;
+    }
+
+    // Method's
+
+    public int computeStrike(char strike) {
+        if (strike == 'X') {
+            return this.STRIKE;
+        } else {
+            return this.SPELL;
+        }
+    }
+
     public int totalScore(String game) {
 
         int len = game.length();
         int sum = 0;
 
         for (int i = 0; i < len; i++) {
-            if (game.charAt(i) == 'X') {
-                sum += 10;
-            } else {
-                int position = Character.getNumericValue(game.charAt(i));
-                sum += position;
-            }
+            int position = Character.getNumericValue(game.charAt(i));
+            sum += position;
         }
 
         return sum;
