@@ -14,6 +14,16 @@ public class ScoreTest {
     }
 
     @Test
+    public void testComputeStrike() {
+        assertEquals(score.getSTRIKE(), score.computeStrike('X'));
+    }
+
+    @Test
+    public void testComputeStrikeFalse() {
+        assertEquals(0, score.computeStrike('3'));
+    }
+
+    @Test
     public void testTotalScore1() {
         String pins = "12345123451234512345";
         assertEquals(60, score.totalScore(pins));
