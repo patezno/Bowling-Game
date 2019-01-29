@@ -1,15 +1,24 @@
 public class Game {
 
     // Atributos
-    private int total = 0;
 
     // Constructor
-    public Game() {
-        this.total = total;
-    }
 
     // Metodos
-    public int getTotal() {
-        return 60;
+    public int totalScore(String game) {
+
+        int len = game.length();
+        int sum = 0;
+
+        for (int i = 0; i < len; i++) {
+            if (game.charAt(i) == 'X') {
+                sum += 10;
+            } else {
+                int position = Character.getNumericValue(game.charAt(i));
+                sum += position;
+            }
+        }
+
+        return sum;
     }
 }
