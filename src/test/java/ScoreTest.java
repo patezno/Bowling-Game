@@ -1,21 +1,28 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 public class ScoreTest {
 
+    private Game score = null;
+
+    @Before
+    public void init() {
+        score = new Game();
+    }
+
     @Test
-    void testTotalScore1() {
+    public void testTotalScore1() {
         String pins = "12345123451234512345";
-        Game score = new Game();
-        int total =  60;
+        int total = 60;
         assertEquals(total, score.totalScore(pins));
     }
 
     @Test
-    void testTotalScoreStrike() {
+    public void testTotalScoreStrike() {
         String pins = "XXXXXXXXXXXX";
-        Game score = new Game();
         int total = 300;
         assertEquals(total, score.totalScore(pins));
     }
