@@ -3,7 +3,7 @@ public class Game {
     // Attributes
 
     private int STRIKE = 10;
-    private int PIN = 0;
+    private int ZERO = 0;
     private int SPARE = 10;
     private int sum = 0;
 
@@ -13,8 +13,8 @@ public class Game {
         return this.STRIKE;
     }
 
-    public int getPIN() {
-        return this.PIN;
+    public int getZERO() {
+        return this.ZERO;
     }
 
     public int getSPARE() {
@@ -41,12 +41,12 @@ public class Game {
         }
     }
 
-    public int computePin(char pin) {
+    public int computeZero(char zero) {
 
-        if (pin == '-') {
-            return this.PIN;
+        if (zero == '-') {
+            return this.ZERO;
         } else {
-            return pin;
+            return zero;
         }
     }
 
@@ -87,6 +87,10 @@ public class Game {
             } else if (character == '/') {
 
                 calculateSpare(character, i, game);
+
+            } else if (character == '-'){
+
+                sum += computeZero(character);
 
             } else {
 

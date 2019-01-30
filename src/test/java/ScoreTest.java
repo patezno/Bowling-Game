@@ -50,4 +50,10 @@ public class ScoreTest {
         String pins = "95/";
         assertEquals(19, score.totalScore(pins));
     }
+
+    @Test
+    public void totalScorePinTest() {
+        String pins = "34-";
+        assertEquals(7, score.totalScore(pins));
+    }
 }
