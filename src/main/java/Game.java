@@ -4,6 +4,7 @@ public class Game {
 
     private int STRIKE = 10;
     private int SPELL = 0;
+    private int SPARE = 10;
 
     // Constructors
 
@@ -15,11 +16,22 @@ public class Game {
         return this.SPELL;
     }
 
+    public int getSPARE() {
+        return this.SPARE;
+    }
+
     // Method's
 
     public int computeStrike(char strike) {
         if (strike == 'X') {
             return this.STRIKE;
+        } else {
+            return this.SPELL;
+        }
+    }
+    public int computeSpare(char spare) {
+        if (spare == '/') {
+            return this.SPARE;
         } else {
             return this.SPELL;
         }
@@ -46,8 +58,13 @@ public class Game {
 
                 continue;
             }
+            if (character == '/') {
+                sum -= Character.getNumericValue(game.charAt(i - 1));
+                sum += computeSpare(character);
+                continue;
+            }
 
-            int position = Character.getNumericValue(game.charAt(i));
+            int position = Character.getNumericValue(character);
             sum += position;
         }
 

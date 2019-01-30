@@ -34,4 +34,10 @@ public class ScoreTest {
         String pins = "X123";
         assertEquals(19, score.totalScore(pins));
     }
+
+    @Test
+    public void totalScoreSpareTest() {
+        String pins = "9/";
+        assertEquals(10, score.totalScore(pins));
+    }
 }
