@@ -47,7 +47,7 @@ public class ScoreTest {
 
     @Test
     public void totalScoreSpareTest() {
-        String pins = "9/";
-        assertEquals(10, score.totalScore(pins));
+        String pins = "95/";
+        assertEquals(19, score.totalScore(pins));
     }
 }
