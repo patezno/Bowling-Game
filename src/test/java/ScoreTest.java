@@ -31,7 +31,7 @@ public class ScoreTest {
 
     @Test
     public void testTotalScoreStrike() {
-        String pins = "XXXXXXXXXXXX";
-        assertEquals(300, score.totalScore(pins));
+        String pins = "X123";
+        assertEquals(19, score.totalScore(pins));
     }
 }
