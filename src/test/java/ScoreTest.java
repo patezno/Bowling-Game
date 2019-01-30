@@ -14,23 +14,23 @@ public class ScoreTest {
     }
 
     @Test
-    public void testComputeStrike() {
+    public void computeStrikeTest() {
         assertEquals(score.getSTRIKE(), score.computeStrike('X'));
     }
 
     @Test
-    public void testComputeStrikeFalse() {
+    public void computeStrikeFalseTest() {
         assertEquals(0, score.computeStrike('3'));
     }
 
     @Test
-    public void testTotalScore1() {
+    public void totalScoreNormalTest() {
         String pins = "12345123451234512345";
         assertEquals(60, score.totalScore(pins));
     }
 
     @Test
-    public void testTotalScoreStrike() {
+    public void totalScoreStrikeTest() {
         String pins = "X123";
         assertEquals(19, score.totalScore(pins));
     }

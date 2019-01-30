@@ -31,15 +31,22 @@ public class Game {
         int sum = 0;
 
         for (int i = 0; i < len; i++) {
+
             char character = game.charAt(i);
+
             if (character == 'X') {
+
                 sum += computeStrike(character);
+
                 int nextPosition = Character.getNumericValue(game.charAt(i + 1));
                 sum += nextPosition;
+
                 int lastPosition = Character.getNumericValue(game.charAt(i + 2));
                 sum += lastPosition;
+
                 continue;
             }
+
             int position = Character.getNumericValue(game.charAt(i));
             sum += position;
         }
