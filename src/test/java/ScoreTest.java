@@ -20,17 +20,17 @@ public class ScoreTest {
 
     @Test
     public void computeStrikeFalseTest() {
-        assertEquals(0, score.computeStrike('3'));
+        assertEquals(-1, score.computeStrike('3'));
     }
 
     @Test
     public void computeSpareTest() {
-        assertEquals(10, score.computeSpare('/'));
+        assertEquals(score.getSPARE(), score.computeSpare('/'));
     }
 
     @Test
     public void computeSpareTestFalse() {
-        assertEquals(0, score.computeSpare('2'));
+        assertEquals(-1, score.computeSpare('2'));
     }
 
     @Test
@@ -55,5 +55,11 @@ public class ScoreTest {
     public void totalScorePinTest() {
         String pins = "34-";
         assertEquals(7, score.totalScore(pins));
+    }
+
+    @Test
+    public void totalScoreStrikeTwoTest() {
+        String pins = "XX87";
+        assertEquals(68, score.totalScore(pins));
     }
 }

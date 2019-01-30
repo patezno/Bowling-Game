@@ -13,10 +13,6 @@ public class Game {
         return this.STRIKE;
     }
 
-    public int getZERO() {
-        return this.ZERO;
-    }
-
     public int getSPARE() {
         return this.SPARE;
     }
@@ -28,7 +24,7 @@ public class Game {
         if (strike == 'X') {
             return this.STRIKE;
         } else {
-            return strike;
+            return -1;
         }
     }
 
@@ -37,7 +33,7 @@ public class Game {
         if (spare == '/') {
             return this.SPARE;
         } else {
-            return spare;
+            return -1;
         }
     }
 
@@ -46,7 +42,7 @@ public class Game {
         if (zero == '-') {
             return this.ZERO;
         } else {
-            return zero;
+            return -1;
         }
     }
 
@@ -96,9 +92,9 @@ public class Game {
 
                 int position = Character.getNumericValue(character);
                 sum += position;
+
             }
         }
-
         return sum;
     }
 }
