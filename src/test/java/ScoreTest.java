@@ -24,6 +24,16 @@ public class ScoreTest {
     }
 
     @Test
+    public void computeSpareTest() {
+        assertEquals(10, score.computeSpare('/'));
+    }
+
+    @Test
+    public void computeSpareTestFalse() {
+        assertEquals(0, score.computeSpare('2'));
+    }
+
+    @Test
     public void totalScoreNormalTest() {
         String pins = "12345123451234512345";
         assertEquals(60, score.totalScore(pins));
