@@ -62,4 +62,10 @@ public class ScoreTest {
         String pins = "XX87";
         assertEquals(68, score.totalScore(pins));
     }
+
+    @Test
+    public void totalScoreStrikeTripleTest() {
+        String pins = "XXX11";
+        assertEquals(65, score.totalScore(pins));
+    }
 }

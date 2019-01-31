@@ -51,16 +51,22 @@ public class Game {
         sum += computeStrike(character);
 
         if (game.charAt(i + 1) == 'X') {
+
             sum += computeStrike(character);
 
-            int lastPosition = Character.getNumericValue(game.charAt(i + 2));
-            sum += lastPosition;
+            if (game.charAt(i + 2) == 'X') {
 
-        } else if (game.charAt(i + 2) == 'X') {
-            sum += computeStrike(character);
-        } else if (game.charAt(i + 2) == '/') {
-            calculateSpare(character, i, game);
+                sum += computeStrike(character);
+
+            } else {
+
+                int lastPosition = Character.getNumericValue(game.charAt(i + 2));
+                sum += lastPosition;
+
+            }
+
         } else {
+
             int nextPosition = Character.getNumericValue(game.charAt(i + 1));
             sum += nextPosition;
 
