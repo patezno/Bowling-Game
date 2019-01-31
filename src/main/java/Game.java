@@ -50,11 +50,23 @@ public class Game {
 
         sum += computeStrike(character);
 
-        int nextPosition = Character.getNumericValue(game.charAt(i + 1));
-        sum += nextPosition;
+        if (game.charAt(i + 1) == 'X') {
+            sum += computeStrike(character);
 
-        int lastPosition = Character.getNumericValue(game.charAt(i + 2));
-        sum += lastPosition;
+            int lastPosition = Character.getNumericValue(game.charAt(i + 2));
+            sum += lastPosition;
+
+        } else if (game.charAt(i + 2) == 'X') {
+            sum += computeStrike(character);
+        } else if (game.charAt(i + 2) == '/') {
+            calculateSpare(character, i, game);
+        } else {
+            int nextPosition = Character.getNumericValue(game.charAt(i + 1));
+            sum += nextPosition;
+
+            int lastPosition = Character.getNumericValue(game.charAt(i + 2));
+            sum += lastPosition;
+        }
     }
 
     private void calculateSpare(char character, int i, String game) {
