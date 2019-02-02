@@ -50,28 +50,42 @@ public class Game {
 
         sum += computeStrike(character);
 
-        if (game.charAt(i + 1) == 'X') {
+        try {
 
-            sum += computeStrike(character);
+            char checkNextPosition = game.charAt(i + 1);
 
-            if (game.charAt(i + 2) == 'X') {
+            char checkLastPosition = game.charAt(i + 2);
+
+            game.charAt(i + 3);
+
+            if (checkNextPosition == 'X') {
 
                 sum += computeStrike(character);
 
+                if (checkLastPosition == 'X') {
+
+                    sum += computeStrike(character);
+
+                } else {
+
+                    int lastPosition = Character.getNumericValue(checkLastPosition);
+                    sum += lastPosition;
+
+                }
+
             } else {
 
-                int lastPosition = Character.getNumericValue(game.charAt(i + 2));
+                int nextPosition = Character.getNumericValue(checkNextPosition);
+                sum += nextPosition;
+
+                int lastPosition = Character.getNumericValue(checkLastPosition);
                 sum += lastPosition;
 
             }
+        } catch (StringIndexOutOfBoundsException checkLastPosition) {
 
-        } else {
+            sum += 0;
 
-            int nextPosition = Character.getNumericValue(game.charAt(i + 1));
-            sum += nextPosition;
-
-            int lastPosition = Character.getNumericValue(game.charAt(i + 2));
-            sum += lastPosition;
         }
     }
 
@@ -82,6 +96,7 @@ public class Game {
 
         try {
             char spare = game.charAt(i + 1);
+            game.charAt(i + 2);
             sum += Character.getNumericValue(spare);
         } catch (StringIndexOutOfBoundsException spare) {
             sum += 0;

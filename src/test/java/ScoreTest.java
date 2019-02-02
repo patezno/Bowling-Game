@@ -68,4 +68,22 @@ public class ScoreTest {
         String pins = "XXX11";
         assertEquals(65, score.totalScore(pins));
     }
+
+    @Test
+    public void totalScoreSpareRoundTest() {
+        String pins = "5/5/5/5/5/5/5/5/5/5/5";
+        assertEquals(150, score.totalScore(pins));
+    }
+
+    @Test
+    public void totalScoreAllStrikesTest() {
+        String pins = "XXXXXXXXXXXX";
+        assertEquals(300, score.totalScore(pins));
+    }
+
+    @Test
+    public void totalScoreTestNormal() {
+        String pins = "X9-9-9-9-9-9-9-9-9-";
+        assertEquals(100, score.totalScore(pins));
+    }
 }
