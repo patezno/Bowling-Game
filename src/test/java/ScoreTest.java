@@ -58,15 +58,15 @@ public class ScoreTest {
     }
 
     @Test
-    public void totalScoreStrikeTwoTest() {
-        String pins = "XX87";
-        assertEquals(68, score.totalScore(pins));
+    public void totalScoreStrikeDoubleTest() {
+        String pins = "XX9-9-9-9-9-9-9-9-";
+        assertEquals(120, score.totalScore(pins));
     }
 
     @Test
     public void totalScoreStrikeTripleTest() {
-        String pins = "XXX11";
-        assertEquals(65, score.totalScore(pins));
+        String pins = "XXX9-9-9-9-9-9-9-";
+        assertEquals(141, score.totalScore(pins));
     }
 
     @Test
@@ -83,7 +83,13 @@ public class ScoreTest {
 
     @Test
     public void totalScoreTestNormal() {
-        String pins = "X9-9-9-9-9-9-9-9-9-";
+        String pins = "9-9-9-9-9-9-9-9-9-X9-";
         assertEquals(100, score.totalScore(pins));
+    }
+
+    @Test
+    public void totalScoreTestRolls() {
+        String pins = "X5/X5/XX5/--5/X5/";
+        assertEquals(175, score.totalScore(pins));
     }
 }

@@ -75,11 +75,31 @@ public class Game {
 
             } else {
 
-                int nextPosition = Character.getNumericValue(checkNextPosition);
-                sum += nextPosition;
+                if (checkNextPosition == '-') {
 
-                int lastPosition = Character.getNumericValue(checkLastPosition);
-                sum += lastPosition;
+                    computeZero(character);
+
+                } else if (checkLastPosition == '-') {
+
+                    computeZero(character);
+
+                } else {
+
+                    int nextPosition = Character.getNumericValue(checkNextPosition);
+                    sum += nextPosition;
+
+                    if (checkLastPosition == '/') {
+
+                        calculateSpare(character, i, game);
+
+                    } else {
+
+                        int lastPosition = Character.getNumericValue(checkLastPosition);
+                        sum += lastPosition;
+
+                    }
+
+                }
 
             }
         } catch (StringIndexOutOfBoundsException checkLastPosition) {
@@ -95,11 +115,15 @@ public class Game {
         sum += computeSpare(character);
 
         try {
+
             char spare = game.charAt(i + 1);
             game.charAt(i + 2);
             sum += Character.getNumericValue(spare);
+
         } catch (StringIndexOutOfBoundsException spare) {
+
             sum += 0;
+
         }
     }
 
@@ -117,7 +141,7 @@ public class Game {
 
                 calculateSpare(character, i, game);
 
-            } else if (character == '-'){
+            } else if (character == '-') {
 
                 sum += computeZero(character);
 
@@ -128,6 +152,8 @@ public class Game {
 
             }
         }
+
         return sum;
+
     }
 }
