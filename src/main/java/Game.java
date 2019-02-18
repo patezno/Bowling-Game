@@ -1,13 +1,17 @@
 public class Game {
 
-    // Attributes
+    // Atributos
 
     private int STRIKE = 10;
     private int ZERO = 0;
     private int SPARE = 10;
     private int sum = 0;
 
-    // Constructors
+    // Constructor
+
+    public Game() {}
+
+    // Getters
 
     public int getSTRIKE() {
         return this.STRIKE;
@@ -17,7 +21,11 @@ public class Game {
         return this.SPARE;
     }
 
-    // Method's
+    public int getZERO() {
+        return this.ZERO;
+    }
+
+    // Metodos
 
     public int computeStrike(char strike) {
 
